@@ -112,4 +112,4 @@ const buttonReset = document.getElementById("reset");
 buttonReset.addEventListener("click", () => {location.reload();});
 
 const buttonDelete = document.getElementById("delete");
-buttonDelete.addEventListener("click", () => {displayBoard.innerHTML =  ;});
+buttonDelete.addEventListener("click", () => {displayBoard.innerHTML = displayBoard.innerHTML.toString().slice(0,-1)});
