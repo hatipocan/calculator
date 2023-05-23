@@ -50,10 +50,10 @@ const displayBoard = document.getElementById("display");
 
 
 const buttonSeven = document.getElementById("seven");
-buttonSeven.addEventListener("click", () => {displayBoard.innerText += "7";});
+buttonSeven.addEventListener("click", () => {displayBoard.innerText += Number(7);});
 
 const buttonEight = document.getElementById("eight");
-buttonEight.addEventListener("click", () => {displayBoard.innerHTML += "8";});
+buttonEight.addEventListener("click", () => {displayBoard.innerHTML += Number(8);});
 
 const buttonNine = document.getElementById("nine");
 buttonNine.addEventListener("click", () => {displayBoard.innerHTML += Number(9);});
