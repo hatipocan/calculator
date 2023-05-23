@@ -24,8 +24,8 @@ function divide(num1, num2) {
 
 // create an input variable for dig1 dig2 and operator . These inputs will be collected from user input from calculator buttons. 
 
-let dig1 = Number();
-let dig2 = Number();
+let dig1 = "";
+let dig2 = "";
 let operator = "";
 
 
@@ -48,20 +48,26 @@ function operate(dig1, dig2, operator) {
 
 const displayBoard = document.getElementById("display");
 
+//display value variable
+let displayValue = '';
+
 
 const buttonSeven = document.getElementById("seven");
-buttonSeven.addEventListener("click", () => {displayBoard.innerText += Number(7);});
+buttonSeven.addEventListener("click", () => {
+    if (operator != '') {displayBoard.innerHTML = ""}
+    displayBoard.innerHTML += Number(7);
+    displayValue += '7'});
 
 const buttonEight = document.getElementById("eight");
-buttonEight.addEventListener("click", () => {displayBoard.innerHTML += Number(8);});
+buttonEight.addEventListener("click", () => {displayBoard.innerHTML += Number(8);
+displayValue += '8'});
 
 const buttonNine = document.getElementById("nine");
 buttonNine.addEventListener("click", () => {displayBoard.innerHTML += Number(9);});
 
 const buttonDivide = document.getElementById("divide");
 buttonDivide.addEventListener("click", () => {
-    operator = "/";
-    displayBoard.innerHTML += " / ";});
+    operator = "/"; });
 
 const buttonFour = document.getElementById("four");
 buttonFour.addEventListener("click", () => {displayBoard.innerHTML += Number(4);});
@@ -74,8 +80,7 @@ buttonSix.addEventListener("click", () => {displayBoard.innerHTML += Number(6);}
 
 const buttonMultiply = document.getElementById("multiply");
 buttonMultiply.addEventListener("click", () => {
-    operator = "*";
-    displayBoard.innerHTML += " * ";});
+    operator = "*";});
 
 const buttonOne = document.getElementById("one");
 buttonOne.addEventListener("click", () => {displayBoard.innerHTML += Number(1);});
@@ -88,8 +93,7 @@ buttonThree.addEventListener("click", () => {displayBoard.innerHTML += Number(3)
 
 const buttonSubtract = document.getElementById("subtract");
 buttonSubtract.addEventListener("click", () => {
-    operator = "-";
-    displayBoard.innerHTML += " - ";});
+    operator = "-";});
 
 const buttonZero = document.getElementById("zero");
 buttonZero.addEventListener("click", () => {displayBoard.innerHTML += Number(0);});
@@ -97,14 +101,12 @@ buttonZero.addEventListener("click", () => {displayBoard.innerHTML += Number(0);
 // Equals button should trigger the operate function . these code block will be changed accordingly
 
 const buttonEquals = document.getElementById("equals");
-buttonEquals.addEventListener("click", () => {
-    operator = "=";
-    displayBoard.innerHTML += " = ";});
+buttonEquals.addEventListener("click", operate);
 
 const buttonPlus = document.getElementById("plus");
 buttonPlus.addEventListener("click", () => {
-    operator = "+";
-    displayBoard.innerHTML += " + ";});
+    operator = "+";});
+    //dig1 = displayBoard.innerHTML;});
 
 // Reset and delete buttons
 
@@ -112,4 +114,12 @@ const buttonReset = document.getElementById("reset");
 buttonReset.addEventListener("click", () => {location.reload();});
 
 const buttonDelete = document.getElementById("delete");
-buttonDelete.addEventListener("click", () => {displayBoard.innerHTML = displayBoard.innerHTML.toString().slice(0,-1)});
+buttonDelete.addEventListener("click", () => {displayBoard.innerHTML = displayBoard.innerHTML.toString().slice(0,-1);
+displayValue = displayValue.slice(0,-1)});
+
+
+
+
+
+
+//if operator pressed store the existing number to dig1
