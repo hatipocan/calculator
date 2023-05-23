@@ -1,0 +1,1 @@
+this is a simple calculator web app made by using javascript , html and css. 
