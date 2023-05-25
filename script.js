@@ -159,13 +159,15 @@ buttonThree.addEventListener("click", () => {
 
 const buttonSubtract = document.getElementById("subtract");
 buttonSubtract.addEventListener("click", () => {
-    operator = "-";
-    counter = 1;
-    if (dig1 != "" && dig2 == "") {
+    if (operator == "") {operator = "-";
+    counter = 1;} 
+    else if (dig1 != "" && dig2 == "") {
         dig2 = Number(displayBoard.innerHTML); 
         dig1 = operate(dig1, dig2, operator);
         displayBoard.innerHTML = dig1;
-        dig2 = ""; } });
+        dig2 = "";
+        counter = 1;
+        operator = "-" } });
 
 const buttonZero = document.getElementById("zero");
 buttonZero.addEventListener("click", () => {
@@ -176,25 +178,29 @@ buttonZero.addEventListener("click", () => {
                             };};
         displayBoard.innerHTML += Number(0);});
 
-// Equals button should trigger the operate function . these code block will be changed accordingly
+// Equals button should trigger the operate function . 
 
 const buttonEquals = document.getElementById("equals");
 buttonEquals.addEventListener("click", () => {
-    dig2 = Number(displayBoard.innerHTML);
+    if (dig1 != ""){dig2 = Number(displayBoard.innerHTML);
     displayBoard.innerHTML = operate(dig1, dig2, operator);
-    counter = 1;
+    dig1 = displayBoard.innerHTML;
+    operator = "";
+    counter = 1;};
 
 });
 
 const buttonPlus = document.getElementById("plus");
 buttonPlus.addEventListener("click", () => {
-    operator = "+";
-    counter = 1;
-    if (dig1 != "" && dig2 == "") {
+    if (operator == "") {operator = "+";
+    counter = 1;} 
+    else if (dig1 != "" && dig2 == "") {
         dig2 = Number(displayBoard.innerHTML); 
         dig1 = operate(dig1, dig2, operator);
         displayBoard.innerHTML = dig1;
-        dig2 = ""; } });
+        dig2 = "";
+        counter = 1;
+        operator = "+" } });
 
 // Reset and delete buttons
 
