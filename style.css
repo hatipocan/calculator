@@ -1,6 +1,6 @@
 .mainboard {
-    width: 400px;
-    height: 400px;
+    width: 320px;
+    height: 360px;
     background-color: lightgray;
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +9,7 @@
 }
 
 #display {
-    width: 400px;
+    width: 320px;
     height: 80px;
     border: 1px solid black;
     border-radius: 10px;
@@ -23,8 +23,8 @@
 }
 
 button {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 10px;
     font-size: 50px;
     
@@ -33,7 +33,7 @@ button {
 #reset,
 #delete,
 #zero  {
-    height: 100px;
-    width: 200px;
+    height: 80px;
+    width: 160px;
 }
 
