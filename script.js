@@ -23,6 +23,7 @@ function divide(num1, num2) {
 
 
 // create an input variable for dig1 dig2 and operator . These inputs will be collected from user input from calculator buttons. 
+// counter variable added in order to store whether or not the operator buttons have pressed. 
 
 let dig1 = "";
 let dig2 = "";
@@ -80,13 +81,15 @@ buttonNine.addEventListener("click", () => {
 
 const buttonDivide = document.getElementById("divide");
 buttonDivide.addEventListener("click", () => {
-    operator = "/";
-    counter = 1; 
-    if (dig1 != "" && dig2 == "") {
+    if (operator == "") {operator = "/";
+    counter = 1;} 
+    else if (dig1 != "" && dig2 == "") {
         dig2 = Number(displayBoard.innerHTML); 
         dig1 = operate(dig1, dig2, operator);
         displayBoard.innerHTML = dig1;
-        dig2 = ""; } });
+        dig2 = "";
+        counter = 1;
+        operator = "/" } });
 
 const buttonFour = document.getElementById("four");
 buttonFour.addEventListener("click", () => {
@@ -117,13 +120,15 @@ buttonSix.addEventListener("click", () => {
 
 const buttonMultiply = document.getElementById("multiply");
 buttonMultiply.addEventListener("click", () => {
-    operator = "*";
-    counter = 1;
-    if (dig1 != "" && dig2 == "") {
+    if (operator == "") {operator = "*";
+    counter = 1;} 
+    else if (dig1 != "" && dig2 == "") {
         dig2 = Number(displayBoard.innerHTML); 
         dig1 = operate(dig1, dig2, operator);
         displayBoard.innerHTML = dig1;
-        dig2 = ""; } });
+        dig2 = "";
+        counter = 1;
+        operator = "*" } });
 
 const buttonOne = document.getElementById("one");
 buttonOne.addEventListener("click", () => {
