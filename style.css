@@ -1,7 +1,6 @@
 .mainboard {
     width: 320px;
     height: 390px;
-    background-color: lightgray;
     display: flex;
     flex-wrap: wrap;
     
