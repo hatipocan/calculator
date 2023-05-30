@@ -1,6 +1,8 @@
 //add function
 
 function add(num1, num2) {
+    let maxValue = 9999999999;
+    if (num1+num2 > maxValue) {return Infinity}
     return (num1 + num2);
 };
 
@@ -12,6 +14,8 @@ function subtract(num1,num2) {
 
 //multiply function
 function multiply(num1, num2) {
+    let maxValue = 9999999999;
+    if (num1*num2 > maxValue) {return Infinity}
     return (num1 * num2);
 };
 
@@ -29,6 +33,12 @@ let dig1 = "";
 let dig2 = "";
 let operator = "";
 let counter = 0;
+
+// a limit function for limiting the display value to a specific digit
+
+function limit (string = '', limit = 0) {  
+    return string.substring(0, limit)
+  };
 
 //operator function for making the correct mathmetical operation
 
@@ -86,15 +96,16 @@ buttonNine.addEventListener("click", () => {
 
 const buttonDivide = document.getElementById("divide");
 buttonDivide.addEventListener("click", () => {
-    if (operator == "") {operator = "/";
+    if (operator == "" || operator == "=") {operator = "/";
     counter = 1;} 
-    else if (dig1 != "" && dig2 == "") {
+    else if (dig1 != "" && dig2 == "" ) {
         dig2 = Number(displayBoard.innerHTML); 
         dig1 = operate(dig1, dig2, operator);
         displayBoard.innerHTML = dig1;
         dig2 = "";
         counter = 1;
-        operator = "/" } });
+        operator = "/" }else if (operator != "") {operator = "/";
+        counter = 1;} });
 
 const buttonFour = document.getElementById("four");
 buttonFour.addEventListener("click", () => {
@@ -124,14 +135,15 @@ buttonSix.addEventListener("click", () => {
         if (counter == 1) {counter = 0;
             dig1 = Number(displayBoard.innerHTML); 
             displayBoard.innerHTML="";
-                            };};
+                            };
+                        };
     if (displayBoard.innerHTML.length <= 9) {
         displayBoard.innerHTML += Number(6)};
     });
 
 const buttonMultiply = document.getElementById("multiply");
 buttonMultiply.addEventListener("click", () => {
-    if (operator == "") {operator = "*";
+    if (operator == "" || operator == "=") {operator = "*";
     counter = 1;} 
     else if (dig1 != "" && dig2 == "") {
         dig2 = Number(displayBoard.innerHTML); 
@@ -139,7 +151,8 @@ buttonMultiply.addEventListener("click", () => {
         displayBoard.innerHTML = dig1;
         dig2 = "";
         counter = 1;
-        operator = "*" } });
+        operator = "*" }else if (operator != "") {operator = "*";
+        counter = 1;} });
 
 const buttonOne = document.getElementById("one");
 buttonOne.addEventListener("click", () => {
@@ -176,7 +189,7 @@ buttonThree.addEventListener("click", () => {
 
 const buttonSubtract = document.getElementById("subtract");
 buttonSubtract.addEventListener("click", () => {
-    if (operator == "") {operator = "-";
+    if (operator == "" || operator == "=") {operator = "-";
     counter = 1;} 
     else if (dig1 != "" && dig2 == "") {
         dig2 = Number(displayBoard.innerHTML); 
@@ -184,7 +197,8 @@ buttonSubtract.addEventListener("click", () => {
         displayBoard.innerHTML = dig1;
         dig2 = "";
         counter = 1;
-        operator = "-" } });
+        operator = "-" } else if (operator != "") {operator = "-";
+        counter = 1;} });
 
 const buttonZero = document.getElementById("zero");
 buttonZero.addEventListener("click", () => {
@@ -203,15 +217,18 @@ const buttonEquals = document.getElementById("equals");
 buttonEquals.addEventListener("click", () => {
     if (dig1 != ""){dig2 = Number(displayBoard.innerHTML);
     displayBoard.innerHTML = operate(dig1, dig2, operator);
+    
+
     dig1 = displayBoard.innerHTML;
-    operator = "";
+    operator = "=";
+    dig2 = "";
     counter = 1;};
 
 });
 
 const buttonPlus = document.getElementById("plus");
 buttonPlus.addEventListener("click", () => {
-    if (operator == "") {operator = "+";
+    if (operator == "" || operator == "=") {operator = "+";
     counter = 1;} 
     else if (dig1 != "" && dig2 == "") {
         dig2 = Number(displayBoard.innerHTML); 
@@ -219,7 +236,8 @@ buttonPlus.addEventListener("click", () => {
         displayBoard.innerHTML = dig1;
         dig2 = "";
         counter = 1;
-        operator = "+" } });
+        operator = "+" } else if (operator != "") {operator = "+";
+        counter = 1;} });
 
 // Reset and delete buttons
 
